@@ -1,0 +1,15 @@
+FROM alpine:3.18
+
+# Install prerequisites
+RUN apk add --no-cache curl git openssh-client fish
+
+# Install chezmoi
+RUN apk add chezmoi
+
+# Install starship
+RUN curl -sS https://starship.rs/install.sh -o starship_install.sh && \
+    sh starship_install.sh -b /usr/local/bin --yes && \
+    rm starship_install.sh
+
+RUN adduser -h /home/wizz -s /usr/bin/fish -D wizz
+USER wizz
