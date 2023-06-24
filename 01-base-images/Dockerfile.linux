@@ -4,7 +4,7 @@ FROM alpine:3.18
 RUN apk add --no-cache curl git openssh-client fish
 
 # Install chezmoi
-RUN apk add chezmoi
+RUN apk add --no-cache chezmoi
 
 # Install starship
 RUN curl -sS https://starship.rs/install.sh -o starship_install.sh && \
